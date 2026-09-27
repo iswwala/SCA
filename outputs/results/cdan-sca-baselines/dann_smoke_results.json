@@ -1,0 +1,47 @@
+{
+  "method": "dann",
+  "source_file": "/home/iswwala/projects/SCA/data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD.h5",
+  "target_file": "/home/iswwala/projects/SCA/data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD_desync50.h5",
+  "epochs": 5,
+  "batch_size": 64,
+  "limit_source": 512,
+  "limit_target": 512,
+  "limit_eval": 256,
+  "history": [
+    {
+      "epoch": 1,
+      "cls_loss": 5.548413455486298,
+      "domain_loss": 0.6988159194588661,
+      "target_accuracy": 0.0,
+      "label_rank_mean_proxy": 135.65234375
+    },
+    {
+      "epoch": 2,
+      "cls_loss": 5.525631308555603,
+      "domain_loss": 0.7017318606376648,
+      "target_accuracy": 0.00390625,
+      "label_rank_mean_proxy": 138.62109375
+    },
+    {
+      "epoch": 3,
+      "cls_loss": 5.518565893173218,
+      "domain_loss": 0.7055304273962975,
+      "target_accuracy": 0.0,
+      "label_rank_mean_proxy": 139.41796875
+    },
+    {
+      "epoch": 4,
+      "cls_loss": 5.504309237003326,
+      "domain_loss": 0.7095419391989708,
+      "target_accuracy": 0.0,
+      "label_rank_mean_proxy": 138.76171875
+    },
+    {
+      "epoch": 5,
+      "cls_loss": 5.479309499263763,
+      "domain_loss": 0.7064202502369881,
+      "target_accuracy": 0.0,
+      "label_rank_mean_proxy": 136.36328125
+    }
+  ]
+}

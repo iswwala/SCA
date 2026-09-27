@@ -1,0 +1,9 @@
+{
+    "model_file": "D:/SCA_UDA/models/baseline/official_cnn_best_desync0_epochs75_batchsize200_0511.h5",
+    "ascad_database": "D:/SCA_UDA/data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD.h5",
+    "num_traces": 10000,
+    "target_byte": 2,
+    "multilabel": 0,
+    "simulated_key": 0,
+    "save_file": "D:/SCA_UDA/results/offi_models/official_fixed_desync0_epochs75_classes256_batchsize200_051101.png"
+}

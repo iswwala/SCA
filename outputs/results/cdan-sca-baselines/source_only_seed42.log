@@ -1,0 +1,6 @@
+{"epoch": 1, "cls_loss": 5.547396957874298, "domain_loss": 0.0, "target_accuracy": 0.00390625, "label_rank_mean_proxy": 122.79296875}
+{"epoch": 2, "cls_loss": 5.5328521728515625, "domain_loss": 0.0, "target_accuracy": 0.0078125, "label_rank_mean_proxy": 122.95703125}
+{"epoch": 3, "cls_loss": 5.5207014083862305, "domain_loss": 0.0, "target_accuracy": 0.0078125, "label_rank_mean_proxy": 124.25390625}
+{"epoch": 4, "cls_loss": 5.502589166164398, "domain_loss": 0.0, "target_accuracy": 0.00390625, "label_rank_mean_proxy": 123.90625}
+{"epoch": 5, "cls_loss": 5.495768904685974, "domain_loss": 0.0, "target_accuracy": 0.00390625, "label_rank_mean_proxy": 126.203125}
+Saved: /home/iswwala/projects/SCA/outputs/results/cdan-sca-baselines/source_only_smoke_results.json

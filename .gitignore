@@ -1,0 +1,51 @@
+# CDPA 大体量数据
+baselines/cdpa/**/Data/
+baselines/cdpa/**/data/
+baselines/cdpa/**/*.zip
+baselines/cdpa/**/*.rar
+baselines/cdpa/**/*.7z
+baselines/cdpa/**/*.tar
+baselines/cdpa/**/*.tar.gz
+baselines/cdpa/**/*.npy
+baselines/cdpa/**/*.npz
+baselines/cdpa/**/*.mat
+baselines/cdpa/**/*.h5
+baselines/cdpa/**/*.hdf5
+baselines/cdpa/**/*.pkl
+baselines/cdpa/**/*.pickle
+
+# 训练生成的大文件
+*.ckpt
+*.pth
+*.pt
+
+# 本地数据
+/data/
+
+# CDPA 大型数据文件
+baselines/cdpa/**/Data/
+baselines/cdpa/**/data/
+baselines/cdpa/**/*.zip
+baselines/cdpa/**/*.rar
+baselines/cdpa/**/*.7z
+baselines/cdpa/**/*.tar
+baselines/cdpa/**/*.tar.gz
+baselines/cdpa/**/*.npy
+baselines/cdpa/**/*.npz
+baselines/cdpa/**/*.mat
+baselines/cdpa/**/*.h5
+baselines/cdpa/**/*.hdf5
+baselines/cdpa/**/*.pkl
+baselines/cdpa/**/*.pickle
+
+# 其他大型二进制文件
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.mat
+*.zip
+*.rar

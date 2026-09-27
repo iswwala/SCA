@@ -1,0 +1,15 @@
+{
+  "source_file": "data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD.h5",
+  "target_file": "data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD_desync50.h5",
+  "source_group": "Profiling_traces",
+  "target_group": "Attack_traces",
+  "methods": ["source_only", "dann", "cdpa_mmd", "adabn"],
+  "epochs": 5,
+  "batch_size": 64,
+  "limit_source": 512,
+  "limit_target": 512,
+  "limit_eval": 256,
+  "seeds": [42, 43, 44],
+  "target_byte": 2,
+  "primary_metrics": ["ge", "sr", "ntge"]
+}

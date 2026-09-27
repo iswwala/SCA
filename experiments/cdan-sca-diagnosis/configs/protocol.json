@@ -1,0 +1,7 @@
+{
+  "source": "data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD.h5::Profiling_traces",
+  "target": "data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD_desync50.h5::Attack_traces",
+  "target_byte": 2,
+  "label_classes": 256,
+  "required_metrics": ["ge", "sr_at_n", "ntge", "target_accuracy", "domain_accuracy"]
+}

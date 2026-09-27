@@ -1,0 +1,142 @@
+{
+  "status": "synthetic_smoke",
+  "source": "/home/iswwala/projects/SCA/data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD.h5",
+  "target": "/home/iswwala/projects/SCA/data/raw/ASCAD_fixed_key/ASCAD_data/ASCAD_databases/ASCAD_desync50.h5",
+  "methods": [
+    "source_only",
+    "dann",
+    "cdan",
+    "cdan_sca"
+  ],
+  "metrics": {
+    "source_only": {
+      "ge_curve": [
+        {
+          "traces": 10,
+          "ge": 124,
+          "success": 0
+        },
+        {
+          "traces": 25,
+          "ge": 120,
+          "success": 0
+        },
+        {
+          "traces": 50,
+          "ge": 117,
+          "success": 0
+        },
+        {
+          "traces": 100,
+          "ge": 114,
+          "success": 0
+        },
+        {
+          "traces": 200,
+          "ge": 110,
+          "success": 0
+        }
+      ],
+      "sr_at_100": 0,
+      "ntge": null
+    },
+    "dann": {
+      "ge_curve": [
+        {
+          "traces": 10,
+          "ge": 90,
+          "success": 0
+        },
+        {
+          "traces": 25,
+          "ge": 85,
+          "success": 0
+        },
+        {
+          "traces": 50,
+          "ge": 80,
+          "success": 0
+        },
+        {
+          "traces": 100,
+          "ge": 76,
+          "success": 0
+        },
+        {
+          "traces": 200,
+          "ge": 71,
+          "success": 0
+        }
+      ],
+      "sr_at_100": 0,
+      "ntge": null
+    },
+    "cdan": {
+      "ge_curve": [
+        {
+          "traces": 10,
+          "ge": 56,
+          "success": 0
+        },
+        {
+          "traces": 25,
+          "ge": 50,
+          "success": 0
+        },
+        {
+          "traces": 50,
+          "ge": 45,
+          "success": 0
+        },
+        {
+          "traces": 100,
+          "ge": 40,
+          "success": 0
+        },
+        {
+          "traces": 200,
+          "ge": 35,
+          "success": 0
+        }
+      ],
+      "sr_at_100": 0,
+      "ntge": null
+    },
+    "cdan_sca": {
+      "ge_curve": [
+        {
+          "traces": 10,
+          "ge": 40,
+          "success": 0
+        },
+        {
+          "traces": 25,
+          "ge": 35,
+          "success": 0
+        },
+        {
+          "traces": 50,
+          "ge": 31,
+          "success": 0
+        },
+        {
+          "traces": 100,
+          "ge": 26,
+          "success": 0
+        },
+        {
+          "traces": 200,
+          "ge": 22,
+          "success": 0
+        }
+      ],
+      "sr_at_100": 0,
+      "ntge": null
+    }
+  },
+  "limitations": [
+    "ASCAD source/target files unavailable",
+    "TensorFlow/h5py training not executed",
+    "synthetic metrics are not scientific evidence"
+  ]
+}
