@@ -49,3 +49,5 @@ baselines/cdpa/**/*.pickle
 *.mat
 *.zip
 *.rar
+
+docs/mine

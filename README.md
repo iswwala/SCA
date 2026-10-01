@@ -1,91 +1,118 @@
-# SCA-UDA
+# CDAN-SCA
 
-面向跨设备迁移场景的神经网络侧信道分析研究工作区。
+面向跨设备和跨分布场景的深度学习侧信道分析研究项目。
 
-本项目主要研究 AES 侧信道分析，重点关注建模攻击模型以及无监督域适应方法在不同设备、不同实现、不同探针位置和不同轨迹分布之间的迁移能力。
+项目主要研究建模侧信道攻击中的无监督域适应问题：源域拥有带标签 profiling 轨迹，目标域只有无标签轨迹，最终使用 GE、key rank、成功率和攻击轨迹成本评价方法是否真正改善了密钥恢复。
 
-## 研究目标
+## 当前研究主线
 
-- 复现并比较建模侧信道分析和跨设备/域适应方向的代表性基线方法。
-- 分析不同方法在 AES 泄露场景下的优势、适用重点和局限性。
-- 研究适用于跨设备侧信道分析的改进模型结构和训练方法。
-- 分离管理数据集、外部基线、实验代码和生成结果，以便追踪实验过程并复现实验结果。
+当前基础主线方法是 **CDAN-SCA**：
+
+- 使用一维波形网络提取特征；
+- 将特征和 256 类分类预测组成条件表示；
+- 通过 GRL 和域判别器进行条件域对抗；
+- 使用目标域熵或置信度控制不可靠样本的适应贡献。
+
+当前优先探索的 SCA-specific 扩展是**校准感知 CDAN-SCA**，但它仍属于待实验确认的候选创新，不应在没有统一实验结果前写成既定结论。
+
+## 开始阅读
+
+建议按以下顺序阅读：
+
+1. [`docs/research/新人规划.md`](docs/research/%E6%96%B0%E4%BA%BA%E8%A7%84%E5%88%92.md)
+2. [`docs/research/主方法.md`](docs/research/%E4%B8%BB%E6%96%B9%E6%B3%95.md)
+3. [`docs/research/datasets_and_links.md`](docs/research/datasets_and_links.md)
+4. [`docs/research/reference_experiment_analysis.md`](docs/research/reference_experiment_analysis.md)
+5. [`experiments/README.md`](experiments/README.md)
 
 ## 目录结构
 
 ```text
-SCA_UDA/
-  baselines/              # 外部基线或复现的基线方法
-    ascad/                # ASCAD 官方代码及相关资源
-    cdpa/                 # 跨设备建模攻击基线
-    official_scripts/     # 早期官方/基线预处理脚本
+SCA/
+  baselines/                    # 外部基线、官方资源和历史复现材料
+  src/                          # 当前维护的模型、训练器和工具
+    framework/
+      models/
+      trainers/
+      utils/
+      configs/
 
-  src/                    # 当前维护的研究框架
-    framework/            # 当前 CDAN/监督训练框架
+  experiments/                  # 当前阶段实验提交入口
+    00_common_e0/               # 共同最小端到端实验
+    01_member_a_baselines/      # 基线实验目录
+    02_member_b_method/         # 结构和主方法实验目录
+    03_member_c_robustness/     # 评估、鲁棒性和敏感性实验目录
+    04_integrated_results/      # 后期汇总目录
+    cdan-sca-baselines/         # 既有历史基线目录
+    cdan-sca-diagnosis/         # 既有诊断和评估协议目录
+    cdan-sca-ablation/          # 既有主方法消融说明目录
+    legacy/                     # 历史代码，仅用于追溯
 
-  experiments/            # 实验入口、配置和历史试验
-    legacy/               # 为保留实验追踪信息而保存的历史脚本和配置
+  outputs/                      # 后期正式结果归档入口
+    results/                    # 经过复核的结果、表格和图表
+    models/                     # 经过复核的模型和检查点
 
-  data/                   # 本地大规模数据集；不要随意提交或移动
-
-  outputs/                # 实验生成的结果文件
-    results/              # 图表、GE 曲线、日志和比较汇总
-    models/               # 实验导出的训练权重和检查点
-
-  references/             # 论文和阅读材料
-    papers/               # PDF 论文及方法参考资料
-
-  docs/                   # 研究笔记、方法总结和实验记录
+  data/                         # 本地数据，不提交原始轨迹
+  references/                   # 论文和参考资料
+  docs/                         # 研究规划、方法、综述和实验规范
 ```
 
-## 新工作放置位置
+## 实验提交约定
 
-开展新实验前，请先阅读 [`experiments/README.md`](experiments/README.md) 中的当前实验登记信息，以及 [`docs/experiments/README.md`](docs/experiments/README.md) 中的实验协议和结果链接。
-
-- 新的模型组件：`src/framework/models/`
-- 新的训练器或训练流程：`src/framework/trainers/`
-- 新的数据集加载和预处理工具：`src/framework/utils/`
-- 新的实验配置：`src/framework/configs/` 或 `experiments/<experiment_name>/configs/`
-- 一次性探索脚本：`experiments/<experiment_name>/`
-- 最终图表、GE 曲线和结果表：`outputs/results/<experiment_name>/`
-- 保存的模型权重和检查点：`outputs/models/<experiment_name>/`
-- 论文笔记和方法比较：`docs/literature/`
-
-## 已完成实验记录
-
-- `experiments/cdan-sca-diagnosis/` 包含跨设备诊断实验协议和不依赖深度学习环境的契约检查脚本；生成的结果分析位于 `outputs/results/cdan-sca-diagnosis/`。
-- 当前记录的 smoke 实验使用 `~/venvs/tf` 环境，源域为 `ASCAD.h5/Profiling_traces`，目标域为 `ASCAD_desync50.h5/Attack_traces`，源域和目标域各使用 512 条轨迹，使用 256 条轨迹进行评估，batch size 为 64，训练 2 个 epoch，随机种子为 42。该实验只用于检查流程，不能作为最终性能结论。
-
-## 建议的研究记录方式
-
-每个主要实验单独建立一个目录：
+当前阶段实验先提交到 `experiments/`。每个实验目录至少包含：
 
 ```text
-experiments/
-  2026-xx-cross-device-new-arch/
-    README.md             # 研究假设、源/目标设备、泄露模型和评价指标
-    configs/
-    scripts/
+<experiment>/
+  README.md       # 研究问题、数据、方法、指标、结论边界
+  configs/        # 完整可复现配置
+  scripts/        # 运行脚本和结果汇总脚本
+  reports/        # 实验报告
+  results/        # 小型结果表、JSON、日志摘要
+  figures/        # GE 曲线和分析图
+  manifests/      # 命令、seed、版本、数据哈希和输出清单
 ```
 
-为每个方法或论文保留一份简要笔记：
+实验报告必须明确：
+
+- `source_train`、`source_val`、`target_adapt`、`target_attack`；
+- 方法、backbone、训练预算和随机种子；
+- GE、key rank、SR、NTGE 和总轨迹成本；
+- 失败、异常和结论边界；
+- 运行命令和实际生成文件。
+
+## 后期结果迁移
+
+当某组实验完成复核、确定用于论文或项目结论后，再进行归档迁移：
 
 ```text
-docs/literature/
-  dann.md
-  cdan.md
-  cdpa.md
-  ascad.md
+experiments/<experiment>/results/
+    -> outputs/results/<experiment>/
+
+本地模型检查点
+    -> outputs/models/<experiment>/
 ```
 
-每份笔记建议包含：
+迁移后仍保留原实验目录中的报告、配置和 manifest，保证结果可以追溯。`outputs/` 和 `models/` 用于稳定结果归档，不替代当前阶段的实验提交目录。
 
-- 核心思想
-- 适用场景
-- 方法优势
-- 方法局限
-- 在当前 AES 跨设备场景下可以改进的方向
+## 数据和大文件
 
-## 数据管理规范
+以下内容不得直接提交到 Git：
 
-由于数据集可能较大，`data`可保留在自己主机上，不要将原始轨迹、生成的数据集、模型检查点或大规模结果压缩包提交到版本库。
+- 原始 `.h5`、`.npy`、`.npz` 数据集；
+- 大型 prediction 文件；
+- 模型 checkpoint；
+- 大型训练日志和压缩包。
+
+实验目录只提交配置、代码、报告、小型汇总结果、图表和 manifest。大型文件保存在本地，并在 manifest 中记录路径、文件大小和哈希。
+
+## 评价原则
+
+分类准确率和 domain accuracy 只能作为辅助指标。正式结论必须优先依据：
+
+- GE 曲线；
+- key rank；
+- 固定轨迹预算下的成功率；
+- 达到目标 GE 或 rank 所需的轨迹数；
+- 是否计入目标域适应轨迹后的总攻击成本。
+
+完整实验安排和验收规则以 [`docs/research/新人规划.md`](docs/research/%E6%96%B0%E4%BA%BA%E8%A7%84%E5%88%92.md) 为准。

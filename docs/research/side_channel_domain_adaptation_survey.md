@@ -208,11 +208,8 @@ domain confusion -> class structure -> probability quality -> key rank
 10. Picek, S. et al. **No (good) loss no gain: systematic evaluation of loss functions in deep learning-based side-channel analysis.** Journal of Cryptographic Engineering, 2023. [DOI](https://doi.org/10.1007/s13389-023-00320-6)
 11. Karayalcin, S. et al. **It’s a Kind of Magic: A Novel Conditional GAN Framework for Efficient Profiling Side-channel Analysis.** Extended version in local repository: `references/papers/ref/2023-1108.pdf`. The exact publication venue/version should be verified before citing in a final paper.
 
-## 9. 与本项目直接相关的本地材料
+## 9. 与本项目相关的材料
 
-- `docs/research/CDAN-SCA_research_plan.md`：已有主线、假设和扩展方向；
 - `docs/research/CDAN-SCA_research_assessment.md`：已有创新性风险和缺口判断；
 - `experiments/cdan-sca-baselines/README.md`：当前基线覆盖和公平性规则；
 - `experiments/cdan-sca-diagnosis/README.md`：GE/SR/NTGE 评价目标；
-- `baselines/ascad/ASCAD_OFFICAL/`：ASCAD 官方代码和模型配置；
-- `baselines/cdpa/CDPA/Cross-Device-Profiled-Attack-main/`：CDPA 代码、数据包和多设备材料。
