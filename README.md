@@ -13,7 +13,7 @@
 - 通过 GRL 和域判别器进行条件域对抗；
 - 使用目标域熵或置信度控制不可靠样本的适应贡献。
 
-当前优先探索的 SCA-specific 扩展是**校准感知 CDAN-SCA**，但它仍属于待实验确认的候选创新，不应在没有统一实验结果前写成既定结论。
+当前优先探索的 SCA-specific 扩展是**校准感知 CDAN-SCA**，但它仍属于待实验确认的候选创新。
 
 ## 开始阅读
 
@@ -21,8 +21,8 @@
 
 1. [`docs/research/新人规划.md`](docs/research/%E6%96%B0%E4%BA%BA%E8%A7%84%E5%88%92.md)
 2. [`docs/research/主方法.md`](docs/research/%E4%B8%BB%E6%96%B9%E6%B3%95.md)
-3. [`docs/research/datasets_and_links.md`](docs/research/datasets_and_links.md)
-4. [`docs/research/reference_experiment_analysis.md`](docs/research/reference_experiment_analysis.md)
+3. [`docs/research/datasets_and_links.md`](docs/research/datasets_and_links.md)  数据集合
+4. [`docs/research/reference_experiment_analysis.md`](docs/research/reference_experiment_analysis.md)  此领域参考论文实验；参考文献在 docs/literature 下
 5. [`experiments/README.md`](experiments/README.md)
 
 ## 目录结构
@@ -39,14 +39,14 @@ SCA/
 
   experiments/                  # 当前阶段实验提交入口
     00_common_e0/               # 共同最小端到端实验
-    01_member_a_baselines/      # 基线实验目录
-    02_member_b_method/         # 结构和主方法实验目录
-    03_member_c_robustness/     # 评估、鲁棒性和敏感性实验目录
+    01_member_a_baselines/      # 基线实验
+    02_member_b_method/         # 结构和主方法实验
+    03_member_c_robustness/     # 评估、敏感性实验
     04_integrated_results/      # 后期汇总目录
     cdan-sca-baselines/         # 既有历史基线目录
     cdan-sca-diagnosis/         # 既有诊断和评估协议目录
     cdan-sca-ablation/          # 既有主方法消融说明目录
-    legacy/                     # 历史代码，仅用于追溯
+    legacy/                     # 历史代码，用于追溯
 
   outputs/                      # 后期正式结果归档入口
     results/                    # 经过复核的结果、表格和图表
@@ -59,10 +59,10 @@ SCA/
 
 ## 实验提交约定
 
-当前阶段实验先提交到 `experiments/`。每个实验目录至少包含：
+当前阶段实验先提交到 `experiments/`。每个实验至少包含：
 
 ```text
-<experiment>/
+<ex_xx>/
   README.md       # 研究问题、数据、方法、指标、结论边界
   configs/        # 完整可复现配置
   scripts/        # 运行脚本和结果汇总脚本
@@ -79,7 +79,8 @@ SCA/
 - GE、key rank、SR、NTGE 和总轨迹成本；
 - 失败、异常和结论边界；
 - 运行命令和实际生成文件。
-
+  等等
+  
 ## 后期结果迁移
 
 当某组实验完成复核、确定用于论文或项目结论后，再进行归档迁移：
@@ -96,7 +97,7 @@ experiments/<experiment>/results/
 
 ## 数据和大文件
 
-以下内容不得直接提交到 Git：
+以下内容不要直接提交到 Git：
 
 - 原始 `.h5`、`.npy`、`.npz` 数据集；
 - 大型 prediction 文件；
