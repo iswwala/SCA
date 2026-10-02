@@ -21,7 +21,7 @@
 
 1. [`docs/research/新人规划.md`](docs/research/%E6%96%B0%E4%BA%BA%E8%A7%84%E5%88%92.md)
 2. [`docs/research/主方法.md`](docs/research/%E4%B8%BB%E6%96%B9%E6%B3%95.md)
-3. [`docs/research/datasets_and_links.md`](docs/research/datasets_and_links.md)  数据集合
+3. [`docs/research/datasets_and_links.md`](docs/research/datasets_and_links.md)  数据集
 4. [`docs/research/reference_experiment_analysis.md`](docs/research/reference_experiment_analysis.md)  此领域参考论文实验；参考文献在 docs/literature 下
 5. [`experiments/README.md`](experiments/README.md)
 
